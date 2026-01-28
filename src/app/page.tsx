@@ -1,6 +1,7 @@
 
 import Navbar from "./Navbar";
 import { BEACH_IMAGE } from "./beachImage";
+import { DOCTOR_IMAGE } from "./doctorImage";
 
 export default function Home() {
   return (
@@ -50,7 +51,14 @@ export default function Home() {
         <section id="doctor" className="py-24 px-4 bg-gradient-to-b from-white to-blue-50 dark:from-zinc-900 dark:to-blue-950">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Meet the Doctor</h2>
           <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
-            <div className="w-40 h-40 rounded-full bg-blue-200 dark:bg-blue-900 flex items-center justify-center text-5xl font-bold text-blue-700 dark:text-blue-300">BH</div>
+            <img
+              src={DOCTOR_IMAGE}
+              alt="Dr. Bradley T. Hawkins"
+              className="w-40 h-40 rounded-full object-cover border-4 border-blue-300 shadow-lg"
+              width={160}
+              height={160}
+              loading="lazy"
+            />
             <div>
               <h3 className="text-xl font-semibold mb-2">Dr. Bradley T. Hawkins, D.D.S</h3>
               <p className="text-zinc-700 dark:text-zinc-200">Founder of Hawai'i Mobile Dental Inc. Dr. Hawkins is dedicated to providing care to patients who cannot be seen in a traditional setting, serving all islands with compassion and expertise.</p>
