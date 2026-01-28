@@ -1,15 +1,30 @@
+
 import Navbar from "./Navbar";
+import { BEACH_IMAGE } from "./beachImage";
 
 export default function Home() {
   return (
     <div className="bg-zinc-50 dark:bg-black min-h-screen font-sans">
       <Navbar />
+
       <main className="pt-20">
-        {/* Home Section */}
-        <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-4 py-24 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-black">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-blue-700 dark:text-blue-300 mb-4">Hawai'i Mobile Dental</h1>
-          <p className="max-w-2xl text-lg md:text-2xl text-zinc-700 dark:text-zinc-200 mb-8">We are the only Mobile Dental Service in Hawaiʻi serving all Islands. Comprehensive care delivered to you—anywhere, anytime.</p>
-          <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-blue-700 text-white font-semibold shadow-lg hover:bg-blue-800 transition">Book Appointment</a>
+        {/* Home Section with Waikiki Beach Background */}
+        <section
+          id="home"
+          className="min-h-screen flex flex-col justify-center items-center text-center px-4 py-24 relative"
+          style={{
+            backgroundImage: `url(${BEACH_IMAGE})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
+          <div className="absolute inset-0 bg-blue-900/40 dark:bg-black/60 backdrop-blur-sm z-0" />
+          <div className="relative z-10 flex flex-col items-center">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">Hawai'i Mobile Dental</h1>
+            <p className="max-w-2xl text-lg md:text-2xl text-white/90 mb-8 drop-shadow">We are the only Mobile Dental Service in Hawaiʻi serving all Islands. Comprehensive care delivered to you—anywhere, anytime.</p>
+            <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-blue-700 text-white font-semibold shadow-lg hover:bg-blue-800 transition">Book Appointment</a>
+          </div>
         </section>
 
         {/* Services Section */}
