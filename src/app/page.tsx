@@ -2,6 +2,7 @@
 import Navbar from "./Navbar";
 import { BEACH_IMAGE } from "./beachImage";
 import { DOCTOR_IMAGE } from "./doctorImage";
+import { PORTFOLIO_IMAGES } from "./portfolioImages";
 
 export default function Home() {
   return (
@@ -70,14 +71,17 @@ export default function Home() {
         <section id="portfolio" className="py-24 px-4 bg-white dark:bg-zinc-900">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Portfolio</h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-            <div className="bg-blue-50 dark:bg-zinc-800 rounded-xl p-6 shadow flex flex-col items-center">
-              <div className="w-32 h-32 bg-zinc-200 dark:bg-zinc-700 rounded-lg mb-4" />
-              <p>Mobile dental setup at a local school</p>
-            </div>
-            <div className="bg-blue-50 dark:bg-zinc-800 rounded-xl p-6 shadow flex flex-col items-center">
-              <div className="w-32 h-32 bg-zinc-200 dark:bg-zinc-700 rounded-lg mb-4" />
-              <p>Community outreach event on Maui</p>
-            </div>
+            {PORTFOLIO_IMAGES.map((img, idx) => (
+              <div key={idx} className="bg-blue-50 dark:bg-zinc-800 rounded-xl p-6 shadow flex flex-col items-center">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-48 object-cover rounded-lg mb-4 border border-blue-200 dark:border-blue-900 shadow"
+                  loading="lazy"
+                />
+                <p>{img.alt}</p>
+              </div>
+            ))}
           </div>
         </section>
 
