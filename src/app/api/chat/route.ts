@@ -1,19 +1,19 @@
 
-import { OpenAI } from 'ai/openai';
-import { experimental_StreamObject } from 'ai';
+
+import { streamText, convertToModelMessages } from 'ai';
 
 export const runtime = 'edge';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
+
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
-  const response = await openai.chat.completions.create({
-    model: 'openai/gpt-5.2-chat',
-    stream: true,
-    messages,
+  const result = streamText({
+    model: {
+      id: 'openai/gpt-5.2-chat',
+      apiKey: process.env.OPENAI_API_KEY!,
+    },
+    messages: await convertToModelMessages(messages),
   });
-  return experimental_StreamObject(response);
+  return result.toUIMessageStreamResponse();
 }
