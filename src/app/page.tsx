@@ -3,9 +3,7 @@ import Navbar from "./Navbar";
 import { BEACH_IMAGE } from "./beachImage";
 import { DOCTOR_IMAGE } from "./doctorImage";
 import { PORTFOLIO_IMAGES } from "./portfolioImages";
-import dynamic from "next/dynamic";
-
-const ChatBot = dynamic(() => import("./ChatBot"), { ssr: false });
+import ChatBot from "./ChatBot";
 
 export default function Home() {
   return (
