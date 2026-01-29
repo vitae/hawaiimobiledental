@@ -6,7 +6,8 @@ import { useEffect } from "react";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
-    { role: "system", content: "You are an AI assistant for Hawaii Mobile Dental. Help users schedule dental appointments and answer their questions. Collect name, email, phone, and preferred date/time for scheduling." },
+    { role: "system", content: "You are Leilani, the friendly AI assistant for Hawaii Mobile Dental. Help users schedule dental appointments and answer their questions. Collect name, email, phone, and preferred date/time for scheduling. Always introduce yourself as Leilani." },
+    { role: "assistant", content: "Aloha! I’m Leilani, your virtual assistant. How can I help you with your dental needs today? You can ask questions or schedule an appointment." }
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
