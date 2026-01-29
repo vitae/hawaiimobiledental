@@ -3,17 +3,20 @@ import Navbar from "./Navbar";
 import { BEACH_IMAGE } from "./beachImage";
 import { DOCTOR_IMAGE } from "./doctorImage";
 import { PORTFOLIO_IMAGES } from "./portfolioImages";
+import dynamic from "next/dynamic";
+
+const ChatBot = dynamic(() => import("./ChatBot"), { ssr: false });
 
 export default function Home() {
   return (
     <div className="bg-zinc-50 dark:bg-black min-h-screen font-sans">
       <Navbar />
-
-      <main className="pt-20">
+      <ChatBot />
+      <main className="pt-16 sm:pt-20">
         {/* Home Section with Waikiki Beach Background */}
         <section
           id="home"
-          className="min-h-screen flex flex-col justify-center items-center text-center px-4 py-24 relative"
+          className="min-h-screen flex flex-col justify-center items-center text-center px-2 sm:px-4 py-16 sm:py-24 relative"
           style={{
             backgroundImage: `url(${BEACH_IMAGE})`,
             backgroundSize: "cover",
@@ -22,15 +25,15 @@ export default function Home() {
           }}
         >
           <div className="absolute inset-0 bg-blue-900/40 dark:bg-black/60 backdrop-blur-sm z-0" />
-          <div className="relative z-10 flex flex-col items-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">Hawai'i Mobile Dental</h1>
-            <p className="max-w-2xl text-lg md:text-2xl text-white/90 mb-8 drop-shadow">We are the only Mobile Dental Service in Hawaiʻi serving all Islands. Comprehensive care delivered to you—anywhere, anytime.</p>
-            <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-blue-700 text-white font-semibold shadow-lg hover:bg-blue-800 transition">Book Appointment</a>
+          <div className="relative z-10 flex flex-col items-center w-full max-w-2xl">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4">Hawai'i Mobile Dental</h1>
+            <p className="text-base sm:text-lg md:text-2xl text-white/90 mb-8 drop-shadow">We are the only Mobile Dental Service in Hawaiʻi serving all Islands. Comprehensive care delivered to you—anywhere, anytime.</p>
+            <a href="#contact" className="inline-block px-6 sm:px-8 py-3 rounded-full bg-blue-700 text-white font-semibold shadow-lg hover:bg-blue-800 transition">Book Appointment</a>
           </div>
         </section>
 
         {/* Services Section */}
-        <section id="services" className="py-24 px-4 bg-white dark:bg-zinc-900">
+        <section id="services" className="py-16 sm:py-24 px-2 sm:px-4 bg-white dark:bg-zinc-900">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Our Services</h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
             <div className="bg-blue-50 dark:bg-zinc-800 rounded-xl p-6 shadow">
@@ -49,7 +52,7 @@ export default function Home() {
         </section>
 
         {/* Meet the Doctor Section */}
-        <section id="doctor" className="py-24 px-4 bg-gradient-to-b from-white to-blue-50 dark:from-zinc-900 dark:to-blue-950">
+        <section id="doctor" className="py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-b from-white to-blue-50 dark:from-zinc-900 dark:to-blue-950">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Meet the Doctor</h2>
           <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
             <img
@@ -68,7 +71,7 @@ export default function Home() {
         </section>
 
         {/* Portfolio Section */}
-        <section id="portfolio" className="py-24 px-4 bg-white dark:bg-zinc-900">
+        <section id="portfolio" className="py-16 sm:py-24 px-2 sm:px-4 bg-white dark:bg-zinc-900">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Portfolio</h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
             {PORTFOLIO_IMAGES.map((img, idx) => (
@@ -86,7 +89,7 @@ export default function Home() {
         </section>
 
         {/* Community Section */}
-        <section id="community" className="py-24 px-4 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-black">
+        <section id="community" className="py-16 sm:py-24 px-2 sm:px-4 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950 dark:to-black">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Community</h2>
           <div className="max-w-3xl mx-auto text-center text-zinc-700 dark:text-zinc-200">
             <p>We proudly serve all islands, bringing dental care to nursing homes, schools, workplaces, and homes. Our mission is to restore oral health and boost confidence for everyone in Hawai'i.</p>
@@ -94,7 +97,7 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-24 px-4 bg-white dark:bg-zinc-900">
+        <section id="contact" className="py-16 sm:py-24 px-2 sm:px-4 bg-white dark:bg-zinc-900">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-300 mb-8 text-center">Contact Us</h2>
           <form className="max-w-xl mx-auto grid gap-6 bg-blue-50 dark:bg-zinc-800 rounded-xl p-8 shadow">
             <input className="p-3 rounded border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900" type="text" placeholder="Name *" required />
